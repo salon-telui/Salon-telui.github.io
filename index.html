@@ -1,7 +1,9 @@
-<html lang="es"><head>
+<html lang="es">
+<head>
     <meta charset="UTF-8">
     <title>Salón de Eventos Telui - Disponibilidad</title>
-    <style type="text/css" id="operaUserStyle"></style><style>
+    <style type="text/css" id="operaUserStyle"></style>
+    <style>
         body {
             font-family: 'Comic Sans MS', cursive, sans-serif;
             margin: 0;
@@ -210,7 +212,7 @@
 <body>
     <header>🎉 Salón de Eventos Telui - Disponibilidad 🎉</header>
 
-    <h2 id="mes-anio" style="color: white; margin-top: 20px; text-align: center;">Octubre 2025</h2>
+    <h2 id="mes-anio" style="color: white; margin-top: 20px; text-align: center;">Agosto 2025</h2>
 
     <div class="contenido-principal">
 
@@ -232,12 +234,11 @@
                     <th>Dom</th>
                 </tr>
             </thead>
-            <tbody><tr><td></td><td></td><td class="libre" title="Día libre">1</td><td class="libre" title="Día libre">2</td><td class="ocupado" title="Día ocupado" style="cursor: default;">3</td><td class="libre" title="Día libre">4</td><td class="libre" title="Día libre">5</td></tr><tr><td class="libre" title="Día libre">6</td><td class="libre" title="Día libre">7</td><td class="ocupado" title="Día ocupado" style="cursor: default;">8</td><td class="ocupado" title="Día ocupado" style="cursor: default;">9</td><td class="ocupado" title="Día ocupado" style="cursor: default;">10</td><td class="libre" title="Día libre">11</td><td class="libre" title="Día libre">12</td></tr><tr><td class="libre" title="Día libre">13</td><td class="libre" title="Día libre">14</td><td class="libre" title="Día libre">15</td><td class="ocupado" title="Día ocupado" style="cursor: default;">16</td><td class="ocupado" title="Día ocupado" style="cursor: default;">17</td><td class="ocupado" title="Día ocupado" style="cursor: default;">18</td><td class="libre" title="Día libre">19</td></tr><tr><td class="libre" title="Día libre">20</td><td class="libre" title="Día libre">21</td><td class="libre" title="Día libre">22</td><td class="ocupado" title="Día ocupado" style="cursor: default;">23</td><td class="ocupado" title="Día ocupado" style="cursor: default;">24</td><td class="libre" title="Día libre">25</td><td class="libre" title="Día libre">26</td></tr><tr><td class="libre" title="Día libre">27</td><td class="libre" title="Día libre">28</td><td class="libre" title="Día libre">29</td><td class="ocupado" title="Día ocupado" style="cursor: default;">30</td><td class="ocupado" title="Día ocupado" style="cursor: default;">31</td><td></td><td></td></tr></tbody>
+            <tbody></tbody>
         </table>
 
         <div class="info-salon" aria-label="Información del salón equipado">
             <h3>SALÓN EQUIPADO CON:</h3>
-            
             <p>♡ COCINA ♡</p>
             <ul class="circulos">
                 <li>Cocina Industrial</li>
@@ -254,7 +255,6 @@
 
             <p>♡ PRINCIPAL ♡</p>
             <ul class="estrellas">
-
                 <li>Mesas de madera con manteles crema y camino a elección</li>
                 <li>Sillas de madera</li>
                 <li>Candy Bar</li>
@@ -278,77 +278,4 @@
     </div>
 
     <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
-        <img src="vista-general.jpg" alt="Salón de eventos vista general" style="height:250px;">
-        <img src="juegos.jpg" alt="Zona de juegos decorada" style="height:250px;">
-        <img src="candi.jpg" alt="Candy Bar para eventos" style="height:250px;">
-        <img src="cocina.jpg" alt="Cocina equipada del salón" style="height:250px;">
-    </div>
-
-    <div style="margin-top: 20px; text-align: center;">
-        <div class="whatsapp-form">
-            <h2>📲 Reservá tu fecha por WhatsApp -📍TELUI 681 "Barrio San Pedrito"</h2>
-        </div>
-        <br>
-        <a href="https://wa.me/5493885821392?text=Hola%20quiero%20reservar%20una%20fecha%20en%20el%20salón%20de%20eventos" target="_blank" class="whatsapp-boton" aria-label="Enviar mensaje de WhatsApp para reservar">
-            💬 Enviar WhatsApp
-        </a>
-    </div>
-
-    <footer>© 2025 Salón de Eventos Telui - ¡Hacé tu reserva ya! 📅</footer>
-
-    <script>
-        const mes = 8; // Agosto (0-indexed: enero=0)
-        const anio = 2025;
-
-        const diasLibres = [4,5,6,7,11,12,13,14,15,19,20,21,22,25,26,27,28,29];
-        const diasOcupados = [3,8,9,10,16,17,18,23,24,30,31];
-
-        const primerDia = new Date(anio, mes, 1).getDay(); 
-        const ultimoDia = new Date(anio, mes + 1, 0).getDate();
-
-        const tbody = document.querySelector("#calendario tbody");
-        tbody.innerHTML = "";
-
-        let fila = document.createElement("tr");
-
-        // Ajuste para que la semana empiece en lunes (JS domingo=0)
-        const primerDiaIndex = primerDia === 0 ? 6 : primerDia -1;
-
-        for (let i = 0; i < primerDiaIndex; i++) {
-            fila.appendChild(document.createElement("td"));
-        }
-
-        for (let dia = 1; dia <= ultimoDia; dia++) {
-            const celda = document.createElement("td");
-            celda.textContent = dia;
-
-            if (diasLibres.includes(dia)) {
-                celda.classList.add("libre");
-                celda.title = "Día libre";
-            } else if (diasOcupados.includes(dia)) {
-                celda.classList.add("ocupado");
-                celda.title = "Día ocupado";
-                celda.style.cursor = "default";
-            } else {
-                // Si hay días no listados, los dejamos vacíos o libres:
-                celda.classList.add("libre");
-                celda.title = "Día libre";
-            }
-
-            fila.appendChild(celda);
-
-            if (fila.children.length === 7) {
-                tbody.appendChild(fila);
-                fila = document.createElement("tr");
-            }
-        }
-        if (fila.children.length > 0) {
-            while(fila.children.length < 7) {
-                fila.appendChild(document.createElement("td"));
-            }
-            tbody.appendChild(fila);
-        }
-    </script>
-
-
-</body></html>
+        <
